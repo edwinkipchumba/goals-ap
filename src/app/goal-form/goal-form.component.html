@@ -33,7 +33,7 @@
             <label for="complete">Completion</label>
             <!-- <input type="date" id="complete" required> b4 validation -->
             <input type='date' id="complete" [(ngModel)]="newGoal.completeDate" name="completeDate" #completeDate="ngModel" required>
-            <div [hidden]="completeDate.valid || completeDate.pristine" class="alert alert-danger">
+            <div [hidden]="completeDate.valid || completeDate.prestine" class="alert alert-danger">
                 <p>Date is required *</p>
             </div>
 
