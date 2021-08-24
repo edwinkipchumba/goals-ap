@@ -25,7 +25,8 @@ export class GoalComponent implements OnInit {
     this.goals = goalService.getGoals()
     this.alertService = alertService;
   }
- 
+    // error handling
+    
   
   // add validation to submit button from (goal-form c.html/t)child (goal.c.html/ (addGoal)="addNewGoal($event)" .ts addNewGoal(goal){....
   addNewGoal(goal){
@@ -63,9 +64,13 @@ export class GoalComponent implements OnInit {
       author:string;
       quote:string;
   }
-  this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>{
+  // erro handling
+  this.http.get<ApiResponse>("http://quot.stormconsultancy.co.uk/random.json").subscribe(data=>{
     // Succesful API request
     this.quote = new Quote(data.author, data.quote)
+  },err=>{
+      this.quote = new Quote("Winston Churchill","Never never give up!")
+      console.log("An error occurred")
   })
 
 }
